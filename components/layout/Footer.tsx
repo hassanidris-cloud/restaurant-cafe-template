@@ -112,7 +112,13 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col items-start justify-between gap-4 text-[0.68rem] text-cream/35 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Aurelia Café. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Aurelia Café. All rights reserved.
+            <br className="sm:hidden" />
+            <span className="sm:ml-1">
+              Site design © <span className="font-semibold text-cream/60">velorastudio.design</span>.
+            </span>
+          </p>
           <p className="text-right">
             Concept website crafted for portfolio use.
             <br className="sm:hidden" />
