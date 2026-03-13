@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  @apply bg-cream text-espresso font-body antialiased;
+}
+
+body {
+  background-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.85), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(248, 244, 238, 0.85), transparent 55%);
+}
+
+.texture-overlay {
+  position: relative;
+}
+
+.texture-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  /* Paper grain via SVG data URI */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.section-shell {
+  @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-10;
+}
+
+.pill-label {
+  @apply inline-flex items-center gap-2 rounded-full border border-espresso/10 bg-cream/70 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-espresso/70 shadow-sm backdrop-blur;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-espresso px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-cream shadow-soft-elevated transition hover:bg-caramel hover:-translate-y-0.5 hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-espresso/20 bg-cream/70 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-espresso/80 shadow-sm backdrop-blur transition hover:bg-espresso hover:text-cream;
+}
+
+.glass-panel {
+  @apply rounded-3xl border border-white/40 bg-cream/40 shadow-soft-elevated backdrop-blur-xl;
+}
+
+/* Hide scrollbar but allow scroll */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Decorative section ornament */
+.ornament-divider {
+  @apply flex items-center gap-4 my-2;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid rgba(59, 47, 47, 0.12);
+}
+
+/* Menu card styles */
+.menu-card {
+  @apply rounded-[2rem] border border-espresso/10 bg-cream/80 shadow-soft-elevated;
+  background-image: radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.04), transparent 60%);
+}
+
+/* Dark section buttons */
+.btn-light {
+  @apply inline-flex items-center justify-center rounded-full bg-cream px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-espresso shadow-soft-elevated transition hover:bg-golden hover:-translate-y-0.5;
+}
+.btn-light-outline {
+  @apply inline-flex items-center justify-center rounded-full border border-cream/30 bg-cream/10 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-cream shadow-sm backdrop-blur transition hover:bg-cream/20 hover:border-cream/50;
+}
+
